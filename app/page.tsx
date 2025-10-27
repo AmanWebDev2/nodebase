@@ -19,11 +19,23 @@ export default function Page() {
     })
   );
 
+  const textAi = useMutation(
+    trpc.testAi.mutationOptions({
+      onSuccess: () => {
+        toast.success("job queued");
+        queryClient.invalidateQueries(trpc.getWorkflows.queryOptions());
+      },
+    })
+  );
+
   return (
     <div>
       {JSON.stringify(data)}
       <Button disabled={create.isPending} onClick={() => create.mutate()}>
         Create workflow
+      </Button>
+      <Button disabled={textAi.isPending} onClick={() => textAi.mutate()}>
+        Test Ai
       </Button>
     </div>
   );
