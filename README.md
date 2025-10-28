@@ -40,3 +40,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 2. AI SDK
 3. TRPC
 4. Inngest for background Jobs
+5. nuqs
+6. polar
